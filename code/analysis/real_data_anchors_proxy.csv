@@ -1,0 +1,5 @@
+dataset_and_protected_attribute,k,n,R2_A_given_X,low_level,high_level,inside_swept_range
+Diabetes 130-hosp · sex,8,99493,0.007277721673856985,0.068,0.429,False
+Diabetes 130-hosp · race (Black vs other),8,99493,0.015223103061693943,0.068,0.429,False
+Heart disease · sex,8,299,0.12041809437685091,0.068,0.429,True
+Cervical cancer · age >= median,6,761,0.3623454955598132,0.068,0.429,True
