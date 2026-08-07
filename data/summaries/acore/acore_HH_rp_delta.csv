@@ -1,0 +1,2 @@
+corner,delta_pp,delta_ci_lo,delta_ci_hi,n_pairs,note
+HH,-0.25252525252525254,-2.7777777777777777,2.272727272727273,99,rule-provided: PSE(social) - PSE(neutral); cluster bootstrap B=5000 on latent pair

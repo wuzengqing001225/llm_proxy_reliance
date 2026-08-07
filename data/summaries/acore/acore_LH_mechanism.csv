@@ -1,0 +1,13 @@
+corner,rule,semantic,field_idx,field,pearson_r
+LH,rule-absent,social,0,hemoglobin_index,-0.415944
+LH,rule-absent,social,1,creatinine_marker,0.497820
+LH,rule-absent,social,2,platelet_factor,-0.084951
+LH,rule-absent,social,3,fibrinogen_level,0.213840
+LH,rule-absent,social,4,community_health_index,0.039354
+LH,rule-absent,social,5,residential_risk_factor,-0.118948
+LH,rule-absent,neutral,0,hemoglobin_index,-0.337639
+LH,rule-absent,neutral,1,creatinine_marker,0.430676
+LH,rule-absent,neutral,2,platelet_factor,-0.045458
+LH,rule-absent,neutral,3,fibrinogen_level,0.118377
+LH,rule-absent,neutral,4,inflammation_composite,0.407416
+LH,rule-absent,neutral,5,oxidative_stress_ratio,0.218256
