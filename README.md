@@ -1,4 +1,4 @@
-# README
+# Proxy reliance in large language model decisions is uncalibrated to predictive evidence
 
 Code and data for the paper "Proxy reliance in large language model decisions is uncalibrated to predictive evidence".
 
