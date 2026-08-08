@@ -3,7 +3,8 @@
 #
 #   export LLM_BASE_URL=https://api.deepseek.com/v1
 #   export LLM_API_KEY=sk-...
-#   export LLM_MODEL=deepseek-chat
+#   export LLM_MODEL=deepseek-chat        # resolved to DeepSeek-V4-Flash-0731
+#                                        # for the runs reported in the paper
 #   ./run_all.sh                # full battery
 #   ./run_all.sh core           # claim 1 + claim 2 only (6 cells, 3,564 calls)
 #   ./run_all.sh interaction    # + dimension & structure axes (4 cells, 2,376 calls)
