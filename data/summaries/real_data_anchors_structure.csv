@@ -1,0 +1,8 @@
+dataset,variable_kind,k,n,C_MC_norm,ci_lo,ci_hi,inside_swept_range,nearest_level
+Diabetes 130-hospital · utilization counts,administrative,8,101766,0.147335887602946,0.14588083288063813,0.1488626837105013,True,low
+Hepatitis · liver panel,lab panel,3,148,0.15341215015398033,0.07331912320522248,0.26437346298504877,True,low
+Cervical cancer risk · history + serology,clinical,7,761,0.1743741046262341,0.15085385231040502,0.20206309987107646,True,low
+Heart disease (Cleveland) · clinical + lab,clinical,8,299,0.2453625917718822,0.20697153784597427,0.28436298814922933,True,high
+Dermatology · histopathology scores,clinical,33,358,0.2614730864902702,0.24767786908081876,0.27951977325373184,True,high
+Liver disorders · enzyme panel,lab panel,6,345,0.3005395999570225,0.2594700595135951,0.33942815690804745,True,high
+Breast cancer WDBC · imaging morphometry,imaging,31,569,0.4096019138051024,0.38890499262111883,0.43189832186655075,False,high

@@ -1,0 +1,5 @@
+corner,rule,semantic,R_LLM,PSE,PSE_pp,CI_lo,CI_hi,missing_rate
+LH,rule-absent,social,0.229798,0.056397,5.639731,0.026094,0.089226,0.004209
+LH,rule-absent,neutral,0.323232,0.138889,13.888889,0.090909,0.191919,0.000000
+LH,rule-provided,social,NA,NA,NA,NA,NA,NA
+LH,rule-provided,neutral,NA,NA,NA,NA,NA,NA

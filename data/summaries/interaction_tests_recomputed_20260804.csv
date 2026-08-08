@@ -1,0 +1,5 @@
+standard,semantic,interaction_pp,ci_lo,ci_hi,n_LH_k6,n_LH_k18,n_HH_k6,n_HH_k18,source
+loose,neutral,-21.21,-35.35,-7.07,99,99,99,99,canonical merge g2fix2>g2fix>g2 + xstr; B=5000 seed=11
+loose,social,-27.78,-38.89,-16.16,99,99,99,99,same
+strict,neutral,-21.94,-36.74,-8.54,99,97,97,99,complete pairs only
+strict,social,-29.31,-40.67,-17.76,97,95,99,98,complete pairs only
