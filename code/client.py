@@ -8,6 +8,10 @@ variables; nothing is hardcoded.
     export LLM_API_KEY=...              # your key, read from env only
     export LLM_MODEL=deepseek-chat
 
+Model identifiers used in the paper: claude-sonnet-4-5, deepseek-chat,
+qwen3.7-max, gpt-5.6-terra.  The deepseek-chat alias resolved to
+DeepSeek-V4-Flash-0731 over the period of the reported runs.
+
 Tool-calling is used when the provider supports it (guarantees a parseable
 answer). Providers that reject the `tools` field fall back to a
 one-character text answer; set LLM_NO_TOOLS=1 to skip the tool attempt.
