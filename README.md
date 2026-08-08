@@ -18,6 +18,15 @@ code/                 experiment package (run new models)
 data/                 recomputed cell summaries, dose-response curves, anchors
 ```
 
+## Models
+
+| paper name | API identifier | note |
+|---|---|---|
+| Claude Sonnet 4.5 | `claude-sonnet-4-5` | temperature 0, forced tool choice |
+| DeepSeek-chat | `deepseek-chat` | resolved to DeepSeek-V4-Flash-0731 over the reported runs |
+| Qwen3.7-max | `qwen3.7-max` | temperature 0, extended reasoning disabled |
+| GPT-5.6-terra | `gpt-5.6-terra` | no temperature setting, reasoning disabled, separate channel |
+
 ## Reproduce
 
 ```bash
