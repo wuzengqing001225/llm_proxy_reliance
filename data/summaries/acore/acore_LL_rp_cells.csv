@@ -1,3 +1,0 @@
-corner,rule,semantic,R_LLM,PSE,PSE_pp,CI_lo_pp,CI_hi_pp,SE_pp,n_pairs,missing_rate,note
-LL,provided,social,0.265152,0.033670,3.3670,0.0000,6.9024,1.7943,99,0.002525,complete
-LL,provided,neutral,0.280303,0.050505,5.0505,1.7677,8.3333,1.6431,99,0.000000,complete

@@ -1,2 +1,0 @@
-corner,delta_pp,delta_ci_lo,delta_ci_hi,interaction_pp,interaction_ci_lo,interaction_ci_hi,note
-HH,1.5151515151515151,-1.0101010101010102,3.787878787878788,,,,rule-provided cells not fully sampled (2M per-frame token cap hit); interaction not computable

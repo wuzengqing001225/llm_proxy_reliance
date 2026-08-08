@@ -1,6 +1,0 @@
-condition,semantic,pse_pp,ci_lo,ci_hi,n_pairs,missing_rate,note
-reduced,—,0.0,-1.5,1.25,100,0.0,constructive: proxy path severed
-partial,social,2.6470588235294117,-0.8823529411764706,6.176470588235294,85,0.14916666666666667,1 of 2 social proxies retained
-partial,neutral,nan,nan,nan,0,nan,NOT RUN: per-frame LLM token ceiling reached mid-experiment; sub-agent frame cannot delegate
-full,social,5.64,nan,nan,100,nan,"reference (A-core rule-absent LH, prior run)"
-full,neutral,13.89,nan,nan,100,nan,"reference (A-core rule-absent LH, prior run)"

@@ -1,2 +1,0 @@
-corner,delta_rule_absent_pp,delta_absent_ci_lo,delta_absent_ci_hi,delta_rule_provided_pp,delta_provided_ci_lo,delta_provided_ci_hi,interaction_pp,interaction_ci_lo,interaction_ci_hi,note
-LL,-0.16835016835016842,-1.6835016835016834,1.5151515151515151,,,,,,,rule-provided cells incomplete (LLM token ceiling); Δ_rule-provided and interaction not computable
