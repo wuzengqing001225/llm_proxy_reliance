@@ -153,8 +153,13 @@ class Client:
                 if e.code == 400 and re.search(r"thinking", body, re.I):
                     raise RuntimeError(
                         "provider rejects tool_choice in thinking mode. "
-                        "Disable thinking instead of falling back, e.g.\n"
-                        "  export LLM_EXTRA_JSON='{\"enable_thinking\": false}'\n"
+                        "Disable thinking instead of falling back. The switch "
+                        "is provider specific, e.g.\n"
+                        "  export LLM_EXTRA_JSON='{\"enable_thinking\": false}'"
+                        "                (Qwen)\n"
+                        "  export LLM_EXTRA_JSON='{\"thinking\": "
+                        "{\"type\": \"disabled\"}}'   (DeepSeek V4.1)\n"
+                        "probe_thinking.py finds the right one.\n"
                         f"(HTTP 400: {body})") from None
                 # NOTE on the three latches below: no `not self._flag` guard.
                 # With concurrent workers the first 400 flips the flag while
