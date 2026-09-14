@@ -66,10 +66,16 @@ def analyse_cell(path: str) -> dict | None:
     out["pse_full"] = np.mean([m1[k] - m0[k] for k in keys]) * 100
     out["n_pairs"] = len(keys)
 
-    # (2) consistent pairs only: both orders agree within each cf arm
+    # (2) consistent pairs only: both orders PRESENT and agreeing within each
+    # cf arm. The count check matters: a pair with a single parsed order would
+    # otherwise pass the uniqueness test without being order-consistent.
     c1 = g1.nunique()
     c0 = g0.nunique()
-    cons = [k for k in keys if c1.get(k, 2) == 1 and c0.get(k, 2) == 1]
+    n1 = g1.count()
+    n0 = g0.count()
+    cons = [k for k in keys
+            if n1.get(k, 0) == 2 and n0.get(k, 0) == 2
+            and c1.get(k, 2) == 1 and c0.get(k, 2) == 1]
     out["n_consistent"] = len(cons)
     out["pse_consistent"] = (np.mean([m1[k] - m0[k] for k in cons]) * 100
                              if cons else np.nan)
