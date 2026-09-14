@@ -1,0 +1,12 @@
+{
+ "cell": "k12_LH_neutral_learned_info_b060",
+ "model": "deepseek-flash",
+ "base_url_host": "api.deepseek.com",
+ "date_utc": "2026-09-14T12:48:50+00:00",
+ "channel": "tools=yes reasoning_budget=no temperature=0.0",
+ "extra_json": "{\"thinking\": {\"type\": \"disabled\"}}",
+ "seed": null,
+ "beta": 0.6,
+ "workers": 8,
+ "resume": false
+}
