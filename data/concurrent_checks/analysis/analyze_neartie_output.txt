@@ -1,0 +1,14 @@
+[neartie] logical records without valid answer 0; resolving pairs 600 of 600
+[neartie] PSE +0.50 pp 95% [-1.17, +2.17]; 95% interval inside +/-5 pp: True
+[neartie] changed targets only (235): +1.28 pp [-2.77, +5.32]
+[neartie] same-example learner +2.17 pp [-0.17, +4.67]
+[neartie] model minus learner -1.67 pp [-4.75, +1.42]
+[wide] logical records without valid answer 0; resolving pairs 300 of 300
+[wide] PSE +0.00 pp 95% [-1.17, +1.17]
+[wide] changed targets only (97): +0.00 pp [-3.61, +3.61]
+[wide] same-example learner -0.33 pp [-1.00, +0.00]
+[wide] model minus learner +0.33 pp [-1.00, +1.67]
+near-tie minus concurrent wide-gap: +0.50 pp 95% [-1.42, +2.50]
+[control] wide-gap answers agree with the primary-sample answers on 1191/1200 logical records (descriptive)
+neartie: calls from 2026-10-05T10:15:26.078371+00:00 to 2026-10-05T10:33:13.172308+00:00
+wide: calls from 2026-10-05T10:15:26.078252+00:00 to 2026-10-05T10:33:13.172192+00:00

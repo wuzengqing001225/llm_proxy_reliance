@@ -1,0 +1,6 @@
+condition,semantic,pse_pp,ci_lo,ci_hi,n_pairs,missing_rate,note
+reduced,—,0.0,-1.5,1.25,100,0.0,proxy fields removed
+partial,social,2.647058823529412,-0.8823529411764706,6.176470588235294,85,0.1491666666666666,1 of 2 proxies retained
+partial,neutral,9.343434343434344,5.555555555555555,13.636363636363637,99,0.0,1 of 2 proxies retained
+full,social,5.64,,,100,,rule-absent LH reference cell
+full,neutral,13.89,,,100,,rule-absent LH reference cell

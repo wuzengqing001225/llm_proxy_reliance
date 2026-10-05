@@ -1,0 +1,12 @@
+{
+ "cell": "k12_LH_social_learned_info_b045_s20001",
+ "model": "deepseek-chat",
+ "base_url_host": "api.deepseek.com",
+ "date_utc": "2026-08-07T05:55:11+00:00",
+ "channel": "tools=yes reasoning_budget=no temperature=0.0",
+ "extra_json": "",
+ "seed": 20001,
+ "beta": 0.45,
+ "workers": 6,
+ "resume": false
+}

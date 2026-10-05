@@ -1,0 +1,48 @@
+experiment,condition,contrast,n,effect_pp,lo_pp,hi_pp
+encoding,learned,ordinal,99,8.585858585858585,4.040404040404041,13.131313131313133
+encoding,learned,nominal,99,-1.5151515151515151,-6.0606060606060606,3.0303030303030303
+encoding,learned,numeric,99,26.262626262626267,20.18939393939394,32.82828282828283
+encoding,learned,numeric_reference,99,21.21212121212121,13.636363636363635,29.292929292929294
+encoding,learned,ordinal_minus_nominal,99,10.1010101010101,3.0303030303030303,17.67676767676768
+encoding,learned,numeric_minus_ordinal,99,17.67676767676768,10.1010101010101,25.252525252525253
+encoding,learned,numeric_minus_nominal,99,27.77777777777778,20.2020202020202,36.36363636363637
+encoding,learned,numeric_reference_minus_ordinal,99,12.626262626262626,3.535353535353535,21.71717171717172
+encoding,learned,numeric_reference_minus_nominal,99,22.727272727272727,14.14141414141414,32.323232323232325
+encoding,learned,numeric_minus_numeric_reference,99,5.05050505050505,-3.535353535353535,13.636363636363635
+encoding,absent,ordinal,99,24.242424242424242,17.67676767676768,30.808080808080806
+encoding,absent,nominal,99,1.0101010101010102,-3.535353535353535,5.05050505050505
+encoding,absent,numeric_reference,99,19.696969696969695,13.636363636363635,26.262626262626267
+encoding,absent,ordinal_minus_nominal,99,23.232323232323232,16.666666666666664,30.303030303030305
+encoding,absent,numeric_reference_minus_ordinal,99,-4.545454545454546,-12.121212121212121,3.0303030303030303
+encoding,absent,numeric_reference_minus_nominal,99,18.68686868686869,12.121212121212121,26.262626262626267
+external,external_zero_primary_fixed_p1200,all eligible pairs,1200,0.17,-0.54,0.88
+external,external_zero_primary_fixed_p1200,display order 0,1200,0.58,-0.5,1.67
+external,external_zero_primary_fixed_p1200,display order 1,1200,-0.25,-1.0,0.5
+external,external_zero_primary_fixed_p1200,proxy-changed targets only,379,0.53,-1.72,2.77
+external,external_zero_primary_fixed_p1200,ideal learner given the same examples,1200,1.33,0.33,2.33
+external,external_zero_primary_fixed_p1200,"model minus ideal learner, paired",1200,-1.17,-2.46,0.12
+external,external_zero_random_target_fixed_p300,all eligible pairs,300,0.67,-0.83,2.33
+external,external_zero_random_target_fixed_p300,display order 0,300,1.67,-0.67,4.0
+external,external_zero_random_target_fixed_p300,display order 1,300,-0.33,-2.33,1.67
+external,external_zero_random_target_fixed_p300,proxy-changed targets only,108,1.85,-2.78,6.48
+external,external_zero_random_target_fixed_p300,ideal learner given the same examples,300,0.33,-1.0,1.67
+external,external_zero_random_target_fixed_p300,"model minus ideal learner, paired",300,0.33,-1.83,2.67
+external,external_zero_primary_reverse_p300,all eligible pairs,300,-0.67,-2.17,1.0
+external,external_zero_primary_reverse_p300,display order 0,300,-1.0,-3.67,1.67
+external,external_zero_primary_reverse_p300,display order 1,300,-0.33,-2.0,1.33
+external,external_zero_primary_reverse_p300,proxy-changed targets only,112,-1.79,-6.25,2.68
+external,external_zero_primary_reverse_p300,ideal learner given the same examples,300,1.0,-1.0,3.0
+external,external_zero_primary_reverse_p300,"model minus ideal learner, paired",300,-1.67,-4.17,0.67
+external,external_zero_primary_seeded_p300,all eligible pairs,300,0.33,-1.0,1.67
+external,external_zero_primary_seeded_p300,display order 0,300,1.33,-0.67,3.33
+external,external_zero_primary_seeded_p300,display order 1,300,-0.67,-2.0,0.67
+external,external_zero_primary_seeded_p300,proxy-changed targets only,94,1.06,-3.19,5.32
+external,external_zero_primary_seeded_p300,ideal learner given the same examples,300,2.33,0.33,4.67
+external,external_zero_primary_seeded_p300,"model minus ideal learner, paired",300,-2.0,-4.5,0.33
+external,external_zero_gap_stratified_fixed_p1200,all eligible pairs,150,-0.33,-2.67,2.0
+external,external_zero_gap_stratified_fixed_p1200,display order 0,150,0.67,-2.67,4.0
+external,external_zero_gap_stratified_fixed_p1200,display order 1,150,-1.33,-4.0,1.33
+external,external_zero_gap_stratified_fixed_p1200,proxy-changed targets only,53,-0.94,-7.55,5.66
+external,external_zero_gap_stratified_fixed_p1200,ideal learner given the same examples,150,0.0,-3.33,3.33
+external,external_zero_gap_stratified_fixed_p1200,"model minus ideal learner, paired",150,-0.33,-4.67,3.67
+external,primary_fixed_first300,all eligible pairs,300,-0.33333333333333337,-1.8333333333333333,1.3333333333333335

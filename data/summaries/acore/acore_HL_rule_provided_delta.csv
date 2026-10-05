@@ -1,0 +1,2 @@
+corner,delta_rule_provided_pp,delta_rp_ci_lo_pp,delta_rp_ci_hi_pp,n_pairs,B,note
+HL,2.188552188552188,-2.4410774410774416,7.239057239057238,99,5000,"delta = PSE(social) - PSE(neutral), cluster bootstrap over pair ids"

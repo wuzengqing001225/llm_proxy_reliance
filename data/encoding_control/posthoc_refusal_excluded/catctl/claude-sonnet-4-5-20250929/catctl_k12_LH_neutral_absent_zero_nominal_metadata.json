@@ -1,0 +1,19 @@
+{
+ "cell": "catctl_k12_LH_neutral_absent_zero_nominal",
+ "model": "claude-sonnet-4-5-20250929",
+ "render": "nominal",
+ "rule": "absent",
+ "source": "Claude API answers to exported prompts",
+ "answers_file": "absent_nominal_refusal_as_missing.jsonl",
+ "date_utc": "2026-10-04T03:16:11+00:00",
+ "channel": "POST HOC: refusal-stopped answers treated as missing",
+ "distinct_prompts": 396,
+ "answered": 272,
+ "unanswered": 124,
+ "served": [
+  {
+   "model": "claude-sonnet-4-5-20250929",
+   "calls": 396
+  }
+ ]
+}

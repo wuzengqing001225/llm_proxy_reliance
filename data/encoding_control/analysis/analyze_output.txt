@@ -1,0 +1,26 @@
+===== analyze --rule learned
+ordinal: effect +8.59 pp [+4.04, +13.13], pairs 99, missing calls 0
+   display order 0: +12.12 [+6.06, +19.19]
+   display order 1: +5.05 [-2.02, +12.12]
+   changed targets only (99): +8.59 [+4.04, +13.13]
+nominal: effect -1.52 pp [-6.06, +3.03], pairs 99, missing calls 0
+   display order 0: -3.03 [-7.07, +1.01]
+   display order 1: +0.00 [-8.08, +8.08]
+   changed targets only (99): -1.52 [-6.06, +3.03]
+numeric (battery): effect +21.21 pp [+13.64, +29.29], pairs 99
+paired difference numeric (battery) - ordinal: +12.63 pp [+3.54, +21.72] on 99 pairs
+paired difference numeric (battery) - nominal: +22.73 pp [+14.14, +32.32] on 99 pairs
+paired difference ordinal - nominal: +10.10 pp [+3.03, +17.68] on 99 pairs
+===== analyze --rule absent
+ordinal: effect +24.24 pp [+17.68, +30.81], pairs 99, missing calls 0
+   display order 0: +27.27 [+19.19, +36.36]
+   display order 1: +21.21 [+13.13, +29.29]
+   changed targets only (99): +24.24 [+17.68, +30.81]
+nominal: effect +1.01 pp [-3.54, +5.05], pairs 99, missing calls 0
+   display order 0: -1.01 [-6.06, +4.04]
+   display order 1: +3.03 [-3.03, +9.09]
+   changed targets only (99): +1.01 [-3.54, +5.05]
+numeric (battery): effect +19.70 pp [+13.64, +26.26], pairs 99
+paired difference numeric (battery) - ordinal: -4.55 pp [-12.12, +3.03] on 99 pairs
+paired difference numeric (battery) - nominal: +18.69 pp [+12.12, +26.26] on 99 pairs
+paired difference ordinal - nominal: +23.23 pp [+16.67, +30.30] on 99 pairs

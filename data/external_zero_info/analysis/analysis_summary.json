@@ -1,0 +1,302 @@
+{
+ "primary_fixed_p1200 (main, full)": {
+  "exit": 0,
+  "header": [
+   "run set=primary, pairs planned=1200, pairs complete=1200, missing logical responses=0"
+  ],
+  "bayes": [
+   "true-risk Bayes reference: +0.00 pp by the checked zero-proxy rule"
+  ],
+  "unchanged": [
+   "proxy-unchanged complete pairs: 821 (all have zero contrast by exact-prompt reuse)"
+  ],
+  "rows": {
+   "all eligible pairs": {
+    "n": 1200,
+    "effect_pp": 0.17,
+    "lo_pp": -0.54,
+    "hi_pp": 0.88
+   },
+   "display order 0": {
+    "n": 1200,
+    "effect_pp": 0.58,
+    "lo_pp": -0.5,
+    "hi_pp": 1.67
+   },
+   "display order 1": {
+    "n": 1200,
+    "effect_pp": -0.25,
+    "lo_pp": -1.0,
+    "hi_pp": 0.5
+   },
+   "proxy-changed targets only": {
+    "n": 379,
+    "effect_pp": 0.53,
+    "lo_pp": -1.72,
+    "hi_pp": 2.77
+   },
+   "ideal learner given the same examples": {
+    "n": 1200,
+    "effect_pp": 1.33,
+    "lo_pp": 0.33,
+    "hi_pp": 2.33
+   },
+   "model minus ideal learner, paired": {
+    "n": 1200,
+    "effect_pp": -1.17,
+    "lo_pp": -2.46,
+    "hi_pp": 0.12
+   }
+  }
+ },
+ "primary_fixed_first300 (baseline, derived)": {
+  "exit": 0,
+  "header": [
+   "run set=primary, pairs planned=300, pairs complete=300, missing logical responses=0"
+  ],
+  "bayes": [
+   "true-risk Bayes reference: +0.00 pp by the checked zero-proxy rule"
+  ],
+  "unchanged": [
+   "proxy-unchanged complete pairs: 211 (all have zero contrast by exact-prompt reuse)"
+  ],
+  "rows": {
+   "all eligible pairs": {
+    "n": 300,
+    "effect_pp": -0.33,
+    "lo_pp": -1.83,
+    "hi_pp": 1.17
+   },
+   "display order 0": {
+    "n": 300,
+    "effect_pp": 0.0,
+    "lo_pp": -2.33,
+    "hi_pp": 2.33
+   },
+   "display order 1": {
+    "n": 300,
+    "effect_pp": -0.67,
+    "lo_pp": -2.33,
+    "hi_pp": 1.0
+   },
+   "proxy-changed targets only": {
+    "n": 89,
+    "effect_pp": -1.12,
+    "lo_pp": -6.18,
+    "hi_pp": 3.93
+   },
+   "ideal learner given the same examples": {
+    "n": 300,
+    "effect_pp": 2.0,
+    "lo_pp": 0.0,
+    "hi_pp": 4.33
+   },
+   "model minus ideal learner, paired": {
+    "n": 300,
+    "effect_pp": -2.33,
+    "lo_pp": -5.0,
+    "hi_pp": 0.17
+   }
+  }
+ },
+ "external_zero_random_target_fixed_p300": {
+  "exit": 0,
+  "header": [
+   "run set=random_target, pairs planned=300, pairs complete=300, missing logical responses=0"
+  ],
+  "bayes": [
+   "true-risk Bayes reference: +0.00 pp by the checked zero-proxy rule"
+  ],
+  "unchanged": [
+   "proxy-unchanged complete pairs: 192 (all have zero contrast by exact-prompt reuse)"
+  ],
+  "rows": {
+   "all eligible pairs": {
+    "n": 300,
+    "effect_pp": 0.67,
+    "lo_pp": -0.83,
+    "hi_pp": 2.33
+   },
+   "display order 0": {
+    "n": 300,
+    "effect_pp": 1.67,
+    "lo_pp": -0.67,
+    "hi_pp": 4.0
+   },
+   "display order 1": {
+    "n": 300,
+    "effect_pp": -0.33,
+    "lo_pp": -2.33,
+    "hi_pp": 1.67
+   },
+   "proxy-changed targets only": {
+    "n": 108,
+    "effect_pp": 1.85,
+    "lo_pp": -2.78,
+    "hi_pp": 6.48
+   },
+   "ideal learner given the same examples": {
+    "n": 300,
+    "effect_pp": 0.33,
+    "lo_pp": -1.0,
+    "hi_pp": 1.67
+   },
+   "model minus ideal learner, paired": {
+    "n": 300,
+    "effect_pp": 0.33,
+    "lo_pp": -1.83,
+    "hi_pp": 2.67
+   }
+  }
+ },
+ "external_zero_primary_reverse_p300": {
+  "exit": 0,
+  "header": [
+   "run set=primary, pairs planned=300, pairs complete=300, missing logical responses=0"
+  ],
+  "bayes": [
+   "true-risk Bayes reference: +0.00 pp by the checked zero-proxy rule"
+  ],
+  "unchanged": [
+   "proxy-unchanged complete pairs: 188 (all have zero contrast by exact-prompt reuse)"
+  ],
+  "rows": {
+   "all eligible pairs": {
+    "n": 300,
+    "effect_pp": -0.67,
+    "lo_pp": -2.17,
+    "hi_pp": 1.0
+   },
+   "display order 0": {
+    "n": 300,
+    "effect_pp": -1.0,
+    "lo_pp": -3.67,
+    "hi_pp": 1.67
+   },
+   "display order 1": {
+    "n": 300,
+    "effect_pp": -0.33,
+    "lo_pp": -2.0,
+    "hi_pp": 1.33
+   },
+   "proxy-changed targets only": {
+    "n": 112,
+    "effect_pp": -1.79,
+    "lo_pp": -6.25,
+    "hi_pp": 2.68
+   },
+   "ideal learner given the same examples": {
+    "n": 300,
+    "effect_pp": 1.0,
+    "lo_pp": -1.0,
+    "hi_pp": 3.0
+   },
+   "model minus ideal learner, paired": {
+    "n": 300,
+    "effect_pp": -1.67,
+    "lo_pp": -4.17,
+    "hi_pp": 0.67
+   }
+  }
+ },
+ "external_zero_primary_seeded_p300": {
+  "exit": 0,
+  "header": [
+   "run set=primary, pairs planned=300, pairs complete=300, missing logical responses=0"
+  ],
+  "bayes": [
+   "true-risk Bayes reference: +0.00 pp by the checked zero-proxy rule"
+  ],
+  "unchanged": [
+   "proxy-unchanged complete pairs: 206 (all have zero contrast by exact-prompt reuse)"
+  ],
+  "rows": {
+   "all eligible pairs": {
+    "n": 300,
+    "effect_pp": 0.33,
+    "lo_pp": -1.0,
+    "hi_pp": 1.67
+   },
+   "display order 0": {
+    "n": 300,
+    "effect_pp": 1.33,
+    "lo_pp": -0.67,
+    "hi_pp": 3.33
+   },
+   "display order 1": {
+    "n": 300,
+    "effect_pp": -0.67,
+    "lo_pp": -2.0,
+    "hi_pp": 0.67
+   },
+   "proxy-changed targets only": {
+    "n": 94,
+    "effect_pp": 1.06,
+    "lo_pp": -3.19,
+    "hi_pp": 5.32
+   },
+   "ideal learner given the same examples": {
+    "n": 300,
+    "effect_pp": 2.33,
+    "lo_pp": 0.33,
+    "hi_pp": 4.67
+   },
+   "model minus ideal learner, paired": {
+    "n": 300,
+    "effect_pp": -2.0,
+    "lo_pp": -4.5,
+    "hi_pp": 0.33
+   }
+  }
+ },
+ "external_zero_gap_stratified_fixed_p1200": {
+  "exit": 0,
+  "header": [
+   "run set=gap_stratified, pairs planned=150, pairs complete=150, missing logical responses=0"
+  ],
+  "bayes": [
+   "true-risk Bayes reference: +0.00 pp by the checked zero-proxy rule"
+  ],
+  "unchanged": [
+   "proxy-unchanged complete pairs: 97 (all have zero contrast by exact-prompt reuse)"
+  ],
+  "rows": {
+   "all eligible pairs": {
+    "n": 150,
+    "effect_pp": -0.33,
+    "lo_pp": -2.67,
+    "hi_pp": 2.0
+   },
+   "display order 0": {
+    "n": 150,
+    "effect_pp": 0.67,
+    "lo_pp": -2.67,
+    "hi_pp": 4.0
+   },
+   "display order 1": {
+    "n": 150,
+    "effect_pp": -1.33,
+    "lo_pp": -4.0,
+    "hi_pp": 1.33
+   },
+   "proxy-changed targets only": {
+    "n": 53,
+    "effect_pp": -0.94,
+    "lo_pp": -7.55,
+    "hi_pp": 5.66
+   },
+   "ideal learner given the same examples": {
+    "n": 150,
+    "effect_pp": 0.0,
+    "lo_pp": -3.33,
+    "hi_pp": 3.33
+   },
+   "model minus ideal learner, paired": {
+    "n": 150,
+    "effect_pp": -0.33,
+    "lo_pp": -4.67,
+    "hi_pp": 3.67
+   }
+  }
+ }
+}

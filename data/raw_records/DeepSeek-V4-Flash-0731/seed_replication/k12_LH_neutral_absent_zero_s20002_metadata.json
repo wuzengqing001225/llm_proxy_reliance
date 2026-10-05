@@ -1,0 +1,12 @@
+{
+ "cell": "k12_LH_neutral_absent_zero_s20002",
+ "model": "deepseek-chat",
+ "base_url_host": "api.deepseek.com",
+ "date_utc": "2026-08-07T05:59:53+00:00",
+ "channel": "tools=yes reasoning_budget=no temperature=0.0",
+ "extra_json": "",
+ "seed": 20002,
+ "beta": null,
+ "workers": 6,
+ "resume": false
+}

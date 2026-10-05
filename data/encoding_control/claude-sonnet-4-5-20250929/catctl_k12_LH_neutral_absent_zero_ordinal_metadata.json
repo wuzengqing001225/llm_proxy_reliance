@@ -1,0 +1,19 @@
+{
+ "cell": "catctl_k12_LH_neutral_absent_zero_ordinal",
+ "model": "claude-sonnet-4-5-20250929",
+ "render": "ordinal",
+ "rule": "absent",
+ "source": "Claude API answers to exported prompts",
+ "answers_file": "absent_ordinal.jsonl",
+ "date_utc": "2026-10-04T03:15:51+00:00",
+ "channel": "tools=yes reasoning_budget=no temperature=0.0",
+ "distinct_prompts": 396,
+ "answered": 396,
+ "unanswered": 0,
+ "served": [
+  {
+   "model": "claude-sonnet-4-5-20250929",
+   "calls": 396
+  }
+ ]
+}

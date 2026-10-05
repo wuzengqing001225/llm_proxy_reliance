@@ -1,0 +1,13 @@
+POST HOC (not pre-specified): absent/nominal with the 124 refusal-stopped answers treated as missing; absent/ordinal unchanged
+ordinal: effect +24.24 pp [+17.68, +30.81], pairs 99, missing calls 0
+   display order 0: +27.27 [+19.19, +36.36]
+   display order 1: +21.21 [+13.13, +29.29]
+   changed targets only (99): +24.24 [+17.68, +30.81]
+nominal: effect -0.72 pp [-7.25, +5.80], pairs 69, missing calls 124
+   display order 0: -1.96 [-9.80, +5.88]
+   display order 1: +3.70 [-5.56, +12.96]
+   changed targets only (69): -0.72 [-7.25, +5.80]
+numeric (battery): effect +19.70 pp [+13.64, +26.26], pairs 99
+paired difference numeric (battery) - ordinal: -4.55 pp [-12.12, +3.03] on 99 pairs
+paired difference numeric (battery) - nominal: +18.12 pp [+8.70, +28.26] on 69 pairs
+paired difference ordinal - nominal: +23.19 pp [+13.77, +33.33] on 69 pairs

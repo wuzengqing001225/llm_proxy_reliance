@@ -1,0 +1,12 @@
+model,labels,protocol,gamma,lo,hi
+Sonnet 4.5,neutral,battery,0.147,-0.175,0.481
+Sonnet 4.5,social,battery,0.086,-0.280,0.437
+DeepSeek-V4-Flash-0731,neutral,battery,-0.076,-0.218,0.057
+DeepSeek-V4-Flash-0731,social,battery,-0.011,-0.177,0.164
+Qwen3.7-max,neutral,battery,0.153,-0.048,0.360
+Qwen3.7-max,social,battery,-0.022,-0.213,0.164
+GPT-5.6 Terra,neutral,battery,0.080,-0.131,0.288
+GPT-5.6 Terra,social,battery,0.059,-0.139,0.263
+GPT-5.6 Terra,neutral,repeated,0.279,0.051,0.529
+Pooled (3 models),both,battery_90pct,0.046,-0.037,0.130
+Pooled (4 models),both,battery_90pct,0.052,-0.024,0.130

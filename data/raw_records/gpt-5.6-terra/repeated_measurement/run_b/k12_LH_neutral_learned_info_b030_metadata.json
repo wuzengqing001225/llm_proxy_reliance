@@ -1,0 +1,18 @@
+{
+ "cell": "k12_LH_neutral_learned_info_b030",
+ "model": "gpt-5.6-terra",
+ "date_utc": "2026-10-02T07:37:53+00:00",
+ "channel": "tools=yes reasoning_budget=no temperature=0.0",
+ "extra_json": "",
+ "seed": null,
+ "beta": 0.3,
+ "workers": 8,
+ "resume": false,
+ "served": [
+  {
+   "model": "gpt-5.6-terra",
+   "system_fingerprint": "",
+   "calls": 594
+  }
+ ]
+}

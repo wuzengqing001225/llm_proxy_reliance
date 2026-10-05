@@ -1,0 +1,9 @@
+run set=gap_stratified, pairs planned=150, pairs complete=150, missing logical responses=0
+all eligible pairs: n=150, effect=-0.33 pp, pair-bootstrap 95% [-2.67, +2.00] pp
+display order 0: n=150, effect=+0.67 pp, pair-bootstrap 95% [-2.67, +4.00] pp
+display order 1: n=150, effect=-1.33 pp, pair-bootstrap 95% [-4.00, +1.33] pp
+proxy-changed targets only: n=53, effect=-0.94 pp, pair-bootstrap 95% [-7.55, +5.66] pp
+proxy-unchanged complete pairs: 97 (all have zero contrast by exact-prompt reuse)
+ideal learner given the same examples: n=150, effect=+0.00 pp, pair-bootstrap 95% [-3.33, +3.33] pp
+model minus ideal learner, paired: n=150, effect=-0.33 pp, pair-bootstrap 95% [-4.67, +3.67] pp
+true-risk Bayes reference: +0.00 pp by the checked zero-proxy rule

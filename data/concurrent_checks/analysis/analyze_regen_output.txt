@@ -1,0 +1,15 @@
+answers 4752; logical records without a valid answer 0; served models ['claude-sonnet-4-5-20250929']
+zero  frozen               +26.26 pp  95% [+19.70, +33.33]  90% [+20.71, +31.82]  pairs 99
+zero  stochastic           +27.17 pp  95% [+23.43, +30.81]  90% [+24.04, +30.20]  pairs 99
+zero  frozen - stochastic   -0.91 pp  95% [-7.47, +5.76]  90% [-6.46, +4.75]  pairs 99
+b060  frozen               +26.77 pp  95% [+20.20, +33.84]  90% [+21.21, +32.83]  pairs 99
+b060  stochastic           +29.29 pp  95% [+25.56, +33.03]  90% [+26.06, +32.42]  pairs 99
+b060  frozen - stochastic   -2.53 pp  95% [-9.39, +4.55]  90% [-8.48, +3.43]  pairs 99
+pooled frozen - stochastic -1.72 pp 95% [-7.42, +4.34] 90% [-6.62, +3.28] on 99 pairs; within +/-10 pp by 90% interval: True
+two-point slope, frozen: +0.022 95% [-0.283, +0.327]
+two-point slope, stochastic: +0.091 95% [-0.017, +0.209]
+frozen: first call 2026-10-05T09:36:46.127640+00:00, last call 2026-10-05T10:15:23.914373+00:00
+stochastic: first call 2026-10-05T09:36:46.127807+00:00, last call 2026-10-05T10:15:23.914426+00:00
+zero: frozen choices agree with the battery on 317/394 calls
+b060: frozen choices agree with the battery on 310/396 calls
+zero: frozen choices agree with the second numeric measurement on 390/396 calls

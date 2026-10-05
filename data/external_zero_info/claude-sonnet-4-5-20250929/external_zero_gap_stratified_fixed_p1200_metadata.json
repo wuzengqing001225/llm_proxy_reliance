@@ -1,0 +1,24 @@
+{
+  "design_hash": "2018b676ffa9d612d1dddfa3a965df08333588ebd41a5a295d6364ac96c538c0",
+  "panel_sha256": "f792c388d9b470aac4fbf21c39b176534d55a116e7626881c30bbe7ab0341422",
+  "mapping_sha256": "f1bb82b471cb34649352597572c9b1fb00bd27f77b9f5a22a03dc3eb1039749e",
+  "requested_model": "claude-sonnet-4-5-20250929",
+  "base_url_host": "Claude API",
+  "expected_served": "claude-sonnet-4-5-20250929",
+  "requested_channel": "tools=yes reasoning_budget=no temperature=0.0",
+  "run_set": "gap_stratified",
+  "ordering": "fixed",
+  "pairs": 150,
+  "design_primary_pairs": 1200,
+  "seed": 20261002,
+  "status": "complete",
+  "recorded_unique_calls": 406,
+  "served": [
+    {
+      "model": "claude-sonnet-4-5-20250929",
+      "system_fingerprint": "",
+      "calls": 406
+    }
+  ],
+  "updated_utc": "2026-10-03T16:03:57.843165+00:00"
+}

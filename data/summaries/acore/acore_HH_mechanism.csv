@@ -1,0 +1,19 @@
+cell,field,r,p,n
+"('rule-absent', 'social')",hemoglobin_index,-0.11647271115889854,0.0204305005425149,396
+"('rule-absent', 'social')",creatinine_marker,0.38753883544726286,1.2200326116171504e-15,396
+"('rule-absent', 'social')",platelet_factor,-0.1515598188158835,0.0024949347344199436,396
+"('rule-absent', 'social')",fibrinogen_level,0.1797707300043833,0.0003238720784611048,396
+"('rule-absent', 'social')",community_health_index,0.1571890626885849,0.001703011312893284,396
+"('rule-absent', 'social')",residential_risk_factor,0.22863580987584908,4.297773418312946e-06,396
+"('rule-absent', 'neutral')",hemoglobin_index,-0.0679260698855473,0.1784429536498484,394
+"('rule-absent', 'neutral')",creatinine_marker,0.34072411018799753,3.6332081950651667e-12,394
+"('rule-absent', 'neutral')",platelet_factor,-0.10437238164431399,0.038376638106932676,394
+"('rule-absent', 'neutral')",fibrinogen_level,0.020080466538477462,0.6911023395777344,394
+"('rule-absent', 'neutral')",inflammation_composite,0.558626477786218,1.035078868116423e-33,394
+"('rule-absent', 'neutral')",oxidative_stress_ratio,0.5529776623982872,6.205174284854241e-33,394
+"('rule-provided', 'social')",hemoglobin_index,0.026382355056592578,0.6006724503243605,396
+"('rule-provided', 'social')",creatinine_marker,0.17824123241950687,0.00036479266478740146,396
+"('rule-provided', 'social')",platelet_factor,-0.037589247855334657,0.45571837861550524,396
+"('rule-provided', 'social')",fibrinogen_level,-0.030612226471816,0.5435906104371748,396
+"('rule-provided', 'social')",community_health_index,0.1967742924391837,8.080920091383078e-05,396
+"('rule-provided', 'social')",residential_risk_factor,0.19436374210699026,9.911483796931874e-05,396

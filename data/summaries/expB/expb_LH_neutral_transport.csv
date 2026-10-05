@@ -1,0 +1,15 @@
+quantity,value,note,ci_lo,ci_hi
+E_Q[tau]_pp,15.5,,,
+E_P[tau]_direct_pp,21.153846153846153,"P missing (2,high) — biased",,
+E_P[tau]_IW_pp,12.857142857142856,IW using analytic w(Z) on Q — primary,,
+E_P[tau]_DR_analytic_pp,12.770562770562771,DR with analytic P weights & m(Z)=Q cell mean,,
+TE_f_IW_pp,-2.642857142857144,primary transport gap,-5.857142857142858,0.42857142857142816
+TE_f_direct_pp,5.653846153846153,"biased by P (2,high) missing",-3.0833333333333353,14.51955128205128
+TE_f_DR_pp,-2.7294372294372287,DR reduces to IW when m=cell means,,
+"Cov_Q(w,tau)_pp",-2.7813852813852846,,-5.7383116883116845,0.027056277056276806
+cov_identity_rel_dev,0.05241605241605318,|TE_IW - Cov|/|TE_IW|,,
+IW_residual_direct_minus_IW_pp,8.296703296703297,"artifact of P (2,high) missing",,
+partial_id_bound_pp,15.182995280968676,sqrt(Var_Q(w)*Var_Q(tau)); |TE|_IW = 2.64pp << bound,,
+max_weight,1.7142857142857142,,,
+missing_rate,0.10875,,,
+A_core_baseline_directed_PSE_pp,13.89,A-core LH neutral rule-absent,,

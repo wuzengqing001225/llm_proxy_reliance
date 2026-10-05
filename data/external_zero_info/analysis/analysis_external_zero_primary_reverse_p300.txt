@@ -1,0 +1,9 @@
+run set=primary, pairs planned=300, pairs complete=300, missing logical responses=0
+all eligible pairs: n=300, effect=-0.67 pp, pair-bootstrap 95% [-2.17, +1.00] pp
+display order 0: n=300, effect=-1.00 pp, pair-bootstrap 95% [-3.67, +1.67] pp
+display order 1: n=300, effect=-0.33 pp, pair-bootstrap 95% [-2.00, +1.33] pp
+proxy-changed targets only: n=112, effect=-1.79 pp, pair-bootstrap 95% [-6.25, +2.68] pp
+proxy-unchanged complete pairs: 188 (all have zero contrast by exact-prompt reuse)
+ideal learner given the same examples: n=300, effect=+1.00 pp, pair-bootstrap 95% [-1.00, +3.00] pp
+model minus ideal learner, paired: n=300, effect=-1.67 pp, pair-bootstrap 95% [-4.17, +0.67] pp
+true-risk Bayes reference: +0.00 pp by the checked zero-proxy rule

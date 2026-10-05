@@ -1,0 +1,330 @@
+{
+  "encoding": {
+    "learned": {
+      "ordinal": {
+        "n": 99,
+        "effect_pp": 8.585858585858585,
+        "lo_pp": 4.040404040404041,
+        "hi_pp": 13.131313131313133
+      },
+      "nominal": {
+        "n": 99,
+        "effect_pp": -1.5151515151515151,
+        "lo_pp": -6.0606060606060606,
+        "hi_pp": 3.0303030303030303
+      },
+      "numeric": {
+        "n": 99,
+        "effect_pp": 26.262626262626267,
+        "lo_pp": 20.18939393939394,
+        "hi_pp": 32.82828282828283
+      },
+      "numeric_reference": {
+        "n": 99,
+        "effect_pp": 21.21212121212121,
+        "lo_pp": 13.636363636363635,
+        "hi_pp": 29.292929292929294
+      },
+      "ordinal_minus_nominal": {
+        "n": 99,
+        "effect_pp": 10.1010101010101,
+        "lo_pp": 3.0303030303030303,
+        "hi_pp": 17.67676767676768
+      },
+      "numeric_minus_ordinal": {
+        "n": 99,
+        "effect_pp": 17.67676767676768,
+        "lo_pp": 10.1010101010101,
+        "hi_pp": 25.252525252525253
+      },
+      "numeric_minus_nominal": {
+        "n": 99,
+        "effect_pp": 27.77777777777778,
+        "lo_pp": 20.2020202020202,
+        "hi_pp": 36.36363636363637
+      },
+      "numeric_reference_minus_ordinal": {
+        "n": 99,
+        "effect_pp": 12.626262626262626,
+        "lo_pp": 3.535353535353535,
+        "hi_pp": 21.71717171717172
+      },
+      "numeric_reference_minus_nominal": {
+        "n": 99,
+        "effect_pp": 22.727272727272727,
+        "lo_pp": 14.14141414141414,
+        "hi_pp": 32.323232323232325
+      },
+      "numeric_minus_numeric_reference": {
+        "n": 99,
+        "effect_pp": 5.05050505050505,
+        "lo_pp": -3.535353535353535,
+        "hi_pp": 13.636363636363635
+      }
+    },
+    "absent": {
+      "ordinal": {
+        "n": 99,
+        "effect_pp": 24.242424242424242,
+        "lo_pp": 17.67676767676768,
+        "hi_pp": 30.808080808080806
+      },
+      "nominal": {
+        "n": 99,
+        "effect_pp": 1.0101010101010102,
+        "lo_pp": -3.535353535353535,
+        "hi_pp": 5.05050505050505
+      },
+      "numeric_reference": {
+        "n": 99,
+        "effect_pp": 19.696969696969695,
+        "lo_pp": 13.636363636363635,
+        "hi_pp": 26.262626262626267
+      },
+      "ordinal_minus_nominal": {
+        "n": 99,
+        "effect_pp": 23.232323232323232,
+        "lo_pp": 16.666666666666664,
+        "hi_pp": 30.303030303030305
+      },
+      "numeric_reference_minus_ordinal": {
+        "n": 99,
+        "effect_pp": -4.545454545454546,
+        "lo_pp": -12.121212121212121,
+        "hi_pp": 3.0303030303030303
+      },
+      "numeric_reference_minus_nominal": {
+        "n": 99,
+        "effect_pp": 18.68686868686869,
+        "lo_pp": 12.121212121212121,
+        "hi_pp": 26.262626262626267
+      }
+    }
+  },
+  "external": {
+    "external_zero_primary_fixed_p1200": {
+      "all eligible pairs": {
+        "n": 1200,
+        "effect_pp": 0.17,
+        "lo_pp": -0.54,
+        "hi_pp": 0.88
+      },
+      "display order 0": {
+        "n": 1200,
+        "effect_pp": 0.58,
+        "lo_pp": -0.5,
+        "hi_pp": 1.67
+      },
+      "display order 1": {
+        "n": 1200,
+        "effect_pp": -0.25,
+        "lo_pp": -1.0,
+        "hi_pp": 0.5
+      },
+      "proxy-changed targets only": {
+        "n": 379,
+        "effect_pp": 0.53,
+        "lo_pp": -1.72,
+        "hi_pp": 2.77
+      },
+      "ideal learner given the same examples": {
+        "n": 1200,
+        "effect_pp": 1.33,
+        "lo_pp": 0.33,
+        "hi_pp": 2.33
+      },
+      "model minus ideal learner, paired": {
+        "n": 1200,
+        "effect_pp": -1.17,
+        "lo_pp": -2.46,
+        "hi_pp": 0.12
+      }
+    },
+    "external_zero_random_target_fixed_p300": {
+      "all eligible pairs": {
+        "n": 300,
+        "effect_pp": 0.67,
+        "lo_pp": -0.83,
+        "hi_pp": 2.33
+      },
+      "display order 0": {
+        "n": 300,
+        "effect_pp": 1.67,
+        "lo_pp": -0.67,
+        "hi_pp": 4.0
+      },
+      "display order 1": {
+        "n": 300,
+        "effect_pp": -0.33,
+        "lo_pp": -2.33,
+        "hi_pp": 1.67
+      },
+      "proxy-changed targets only": {
+        "n": 108,
+        "effect_pp": 1.85,
+        "lo_pp": -2.78,
+        "hi_pp": 6.48
+      },
+      "ideal learner given the same examples": {
+        "n": 300,
+        "effect_pp": 0.33,
+        "lo_pp": -1.0,
+        "hi_pp": 1.67
+      },
+      "model minus ideal learner, paired": {
+        "n": 300,
+        "effect_pp": 0.33,
+        "lo_pp": -1.83,
+        "hi_pp": 2.67
+      }
+    },
+    "external_zero_primary_reverse_p300": {
+      "all eligible pairs": {
+        "n": 300,
+        "effect_pp": -0.67,
+        "lo_pp": -2.17,
+        "hi_pp": 1.0
+      },
+      "display order 0": {
+        "n": 300,
+        "effect_pp": -1.0,
+        "lo_pp": -3.67,
+        "hi_pp": 1.67
+      },
+      "display order 1": {
+        "n": 300,
+        "effect_pp": -0.33,
+        "lo_pp": -2.0,
+        "hi_pp": 1.33
+      },
+      "proxy-changed targets only": {
+        "n": 112,
+        "effect_pp": -1.79,
+        "lo_pp": -6.25,
+        "hi_pp": 2.68
+      },
+      "ideal learner given the same examples": {
+        "n": 300,
+        "effect_pp": 1.0,
+        "lo_pp": -1.0,
+        "hi_pp": 3.0
+      },
+      "model minus ideal learner, paired": {
+        "n": 300,
+        "effect_pp": -1.67,
+        "lo_pp": -4.17,
+        "hi_pp": 0.67
+      }
+    },
+    "external_zero_primary_seeded_p300": {
+      "all eligible pairs": {
+        "n": 300,
+        "effect_pp": 0.33,
+        "lo_pp": -1.0,
+        "hi_pp": 1.67
+      },
+      "display order 0": {
+        "n": 300,
+        "effect_pp": 1.33,
+        "lo_pp": -0.67,
+        "hi_pp": 3.33
+      },
+      "display order 1": {
+        "n": 300,
+        "effect_pp": -0.67,
+        "lo_pp": -2.0,
+        "hi_pp": 0.67
+      },
+      "proxy-changed targets only": {
+        "n": 94,
+        "effect_pp": 1.06,
+        "lo_pp": -3.19,
+        "hi_pp": 5.32
+      },
+      "ideal learner given the same examples": {
+        "n": 300,
+        "effect_pp": 2.33,
+        "lo_pp": 0.33,
+        "hi_pp": 4.67
+      },
+      "model minus ideal learner, paired": {
+        "n": 300,
+        "effect_pp": -2.0,
+        "lo_pp": -4.5,
+        "hi_pp": 0.33
+      }
+    },
+    "external_zero_gap_stratified_fixed_p1200": {
+      "all eligible pairs": {
+        "n": 150,
+        "effect_pp": -0.33,
+        "lo_pp": -2.67,
+        "hi_pp": 2.0
+      },
+      "display order 0": {
+        "n": 150,
+        "effect_pp": 0.67,
+        "lo_pp": -2.67,
+        "hi_pp": 4.0
+      },
+      "display order 1": {
+        "n": 150,
+        "effect_pp": -1.33,
+        "lo_pp": -4.0,
+        "hi_pp": 1.33
+      },
+      "proxy-changed targets only": {
+        "n": 53,
+        "effect_pp": -0.94,
+        "lo_pp": -7.55,
+        "hi_pp": 5.66
+      },
+      "ideal learner given the same examples": {
+        "n": 150,
+        "effect_pp": 0.0,
+        "lo_pp": -3.33,
+        "hi_pp": 3.33
+      },
+      "model minus ideal learner, paired": {
+        "n": 150,
+        "effect_pp": -0.33,
+        "lo_pp": -4.67,
+        "hi_pp": 3.67
+      }
+    },
+    "primary_fixed_first300": {
+      "all eligible pairs": {
+        "n": 300,
+        "effect_pp": -0.33333333333333337,
+        "lo_pp": -1.8333333333333333,
+        "hi_pp": 1.3333333333333335
+      }
+    }
+  },
+  "paired_sensitivity": {
+    "external_zero_random_target_fixed_p300": {
+      "n": 300,
+      "effect_pp": 1.0,
+      "lo_pp": -0.5,
+      "hi_pp": 2.5
+    },
+    "external_zero_primary_reverse_p300": {
+      "n": 300,
+      "effect_pp": -0.33333333333333337,
+      "lo_pp": -2.0,
+      "hi_pp": 1.1666666666666667
+    },
+    "external_zero_primary_seeded_p300": {
+      "n": 300,
+      "effect_pp": 0.6666666666666667,
+      "lo_pp": -0.8333333333333334,
+      "hi_pp": 2.166666666666667
+    }
+  },
+  "agreement": {
+    "numeric_second_vs_battery": {
+      "agree": 317,
+      "n": 394
+    }
+  }
+}

@@ -1,0 +1,7 @@
+# Downloaded UCI inputs stay local; retrieval scripts verify their hashes.
+code/analysis/real_anchors/*.csv
+**/__pycache__/
+.DS_Store
+**/.DS_Store
+code/results/
+code/runs_*/
