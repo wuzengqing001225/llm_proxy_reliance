@@ -84,6 +84,17 @@ def load(root):
     kt = pd.read_csv(s / "k_by_structure_summary.csv")
     ccp = root / "data/concurrent_checks/analysis/summary.json"
     cc = json.loads(ccp.read_text()) if ccp.exists() else None
+    learner = pd.read_csv(s / "learner_zero_info.csv")
+    learned = []
+    for fn, key in (("deepseek-chat_summary.csv", "deepseek"), ("qwen3.7-max_summary.csv", "qwen"),
+                    ("gpt-5.6-terra_summary.csv", "gpt5.6-terra")):
+        f = pd.read_csv(s / fn)
+        f = f[(f.corner == "LH") & (f.rule == "learned") & (~f.informative.astype(bool))
+              & (f.semantic == "neutral")].copy()
+        f["model"] = key
+        learned.append(f)
+    cross.attrs["learned"] = pd.concat(learned, ignore_index=True)
+    cross.attrs["learner"] = learner
     return g1, g2, cross, beta, slopes, ev, kt, cc
 
 
@@ -93,23 +104,40 @@ def verdict(lo, hi):
 
 
 def fig1(data, out):
-    """Fig. 1B verdict grid. Fig. 1A is a schematic drawn separately."""
+    """Fig. 1B verdict grid. Fig. 1A is a schematic drawn separately.
+
+    Columns 1-4: no examples, PSE minus the full-information reference.
+    Column 5: eighty examples, zero information, neutral names, PSE minus the
+    same-example learner (data/summaries/learner_zero_info.csv).
+    """
     g1, g2, cross, *_ = data
-    conds = [(False, "neutral", "Zero information,\nneutral names"),
-             (False, "social", "Zero information,\nsocial names"),
-             (True, "neutral", "Informative,\nneutral names"),
-             (True, "social", "Informative,\nsocial names")]
+    learned, learner = cross.attrs["learned"], cross.attrs["learner"]
+    conds = [(False, "neutral", "neutral names"), (False, "social", "social names"),
+             (True, "neutral", "neutral names"), (True, "social", "social names"),
+             ("ex", "neutral", "neutral names")]
     rows = [("sonnet", 6, "Sonnet 4.5, $k$ = 6"), ("sonnet", 12, "Sonnet 4.5, $k$ = 12"),
             ("sonnet", 18, "Sonnet 4.5, $k$ = 18"), ("deepseek", 12, "DeepSeek-V4-Flash"),
             ("qwen", 12, "Qwen3.7-max"), ("gpt5.6-terra", 12, "GPT-5.6 Terra")]
     style = {"excess": (EXCESS, "o", True), "compatible": ("#555555", "o", False),
              "below": (BELOW, "s", True)}
-    fig, axs = plt.subplots(1, 4, figsize=(4.35, 2.45), sharey=True,
-                            gridspec_kw=dict(wspace=0.12))
+    fig = plt.figure(figsize=(4.6, 2.75))
+    gs = fig.add_gridspec(1, 6, width_ratios=[1, 1, 1, 1, 0.25, 1], wspace=0.14,
+                          left=0.235, right=0.99, top=0.69, bottom=0.16)
+    axs = [fig.add_subplot(gs[0, i]) for i in (0, 1, 2, 3, 5)]
+    for ax in axs[1:]:
+        ax.sharey(axs[0])
     for ax, (info, sem, title) in zip(axs, conds):
         ax.axvline(0, color="black", lw=0.6, ls=(0, (3, 2)))
         for y, (key, k, _) in enumerate(rows):
-            if key == "sonnet":
+            if info == "ex":
+                ref = float(learner[(learner.k == k) & (learner.corner == "LH")].learner_pse_pp.iloc[0])
+                if key == "sonnet":
+                    r = g2[(g2.k == k) & (~g2.informative.astype(bool)) & (g2.semantic == sem)].iloc[0]
+                    v, lo, hi = r.PSE_pp - ref, r.ci_lo - ref, r.ci_hi - ref
+                else:
+                    r = learned[(learned.model == key) & (learned.k == k)].iloc[0]
+                    v, lo, hi = r.PSE_pp - ref, r.PSE_lo - ref, r.PSE_hi - ref
+            elif key == "sonnet":
                 r = g1[(g1.k == k) & (g1.informative == info) & (g1.semantic == sem)].iloc[0]
                 v, lo, hi = r.excess_PSE_pp, r.excess_ci_lo, r.excess_ci_hi
             else:
@@ -118,23 +146,36 @@ def fig1(data, out):
                 v, lo, hi = r.excess_PSE_pp, r.PSE_lo - r.PSE_Bayes_pp, r.PSE_hi - r.PSE_Bayes_pp
             verdict = "excess" if lo > 0 else ("below" if hi < 0 else "compatible")
             col, mk, fill = style[verdict]
-            ci(ax, v, y, lo, hi, col, mk, fill=fill, horizontal=True, size=3.8)
+            ci(ax, v, y, lo, hi, col, mk, fill=fill, horizontal=True, size=3.6)
         ax.axhline(2.5, color="#DDDDDD", lw=0.6, zorder=0)
-        ax.set_title(title, fontsize=7, pad=3)
-        ax.set_xlim(-20, 32); ax.set_xticks([-10, 0, 10, 20, 30])
+        ax.set_title(title, fontsize=6.6, pad=2.5)
+        ax.set_xlim(-20, 36); ax.set_xticks([0, 20])
         ax.tick_params(axis="x", labelsize=6.5)
         ax.spines["left"].set_visible(ax is axs[0])
         if ax is not axs[0]:
-            ax.tick_params(axis="y", length=0)
+            ax.tick_params(axis="y", length=0, labelleft=False)
     axs[0].set_yticks(range(len(rows)), [r[2] for r in rows]); axs[0].invert_yaxis()
-    fig.supxlabel("PSE minus full-information reference (pp)", fontsize=7.5, y=-0.04, x=0.5)
+    mid = lambda a, b: (axs[a].get_position().x0 + axs[b].get_position().x1) / 2
+    top = axs[0].get_position().y1
+    for (a, b, label) in ((0, 1, "Zero information"), (2, 3, "Informative"), (4, 4, "Zero information")):
+        fig.text(mid(a, b), top + 0.075, label, ha="center", va="bottom", fontsize=6.8)
+        x0, x1 = axs[a].get_position().x0 + 0.01, axs[b].get_position().x1 - 0.01
+        fig.add_artist(plt.Line2D([x0, x1], [top + 0.068] * 2, color="#888888", lw=0.5))
+    fig.text(mid(0, 3), top + 0.145, "No examples", ha="center", va="bottom", fontsize=7.2,
+             fontweight="bold")
+    fig.text(mid(4, 4), top + 0.145, "80 examples", ha="center", va="bottom", fontsize=7.2,
+             fontweight="bold")
+    fig.text(mid(0, 3), 0.035, "PSE minus full-information reference (pp)", ha="center",
+             va="center", fontsize=7)
+    fig.text(mid(4, 4), 0.035, "PSE minus same-\nexample learner (pp)", ha="center",
+             va="center", fontsize=6.6)
     from matplotlib.lines import Line2D
     h = [Line2D([], [], marker="o", ls="", mfc=EXCESS, mec=EXCESS, ms=4, label="excess reliance"),
          Line2D([], [], marker="o", ls="", mfc="white", mec="#555555", ms=4, label="compatible"),
          Line2D([], [], marker="s", ls="", mfc=BELOW, mec=BELOW, ms=4, label="below reference")]
-    fig.legend(handles=h, ncol=3, loc="upper center", bbox_to_anchor=(0.5, 1.10), frameon=False,
+    fig.legend(handles=h, ncol=3, loc="upper center", bbox_to_anchor=(0.6, 1.0), frameon=False,
                handletextpad=0.2, columnspacing=1.0)
-    letter(axs[0], "b", x=-1.25, y=1.17)
+    fig.text(0.0, 0.985, "B", fontsize=9.5, fontweight="bold", va="top", ha="left")
     save(fig, out, "fig1b_verdicts")
 
 

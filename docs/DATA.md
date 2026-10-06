@@ -30,6 +30,9 @@ is chosen). Cell tags follow `k<fields>_<corner>_<names>_<rule>_<info>[_b<beta>]
   `--analyze` mode of `code/stochastic_regeneration.py` and
   `code/temperature_resampling.py`.
 
+`summaries/learner_zero_info.csv` gives the same-example learner's effect in the
+zero-information cells with eighty examples (`code/learner_zero_info.py`).
+
 Conditions released as condition summaries only:
 
 - `summaries/acore/`: rule-provided boundary condition and the four
