@@ -32,6 +32,10 @@ is chosen). Cell tags follow `k<fields>_<corner>_<names>_<rule>_<info>[_b<beta>]
 
 `summaries/learner_zero_info.csv` gives the same-example learner's effect in the
 zero-information cells with eighty examples (`code/learner_zero_info.py`).
+`summaries/example_statistics.csv` gives, for the twelve-field example sets of
+the example-count, dose-response and informative cells, the same-example
+learner's effect and error and the mean proxy-outcome correlation in the
+examples (`code/example_statistics.py`).
 
 Conditions released as condition summaries only:
 

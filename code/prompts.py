@@ -35,7 +35,7 @@ def build_prompt(k: int, semantic: str, rule: str,
     """One decision prompt.
 
     rule='absent'  : no scoring rule, no cases -- the model must judge unaided
-    rule='learned' : no rule, but N_CAL labelled cases to induce the pattern from
+    rule='learned' : no rule, but N_CAL labeled cases to induce the pattern from
     """
     names = field_names(k, semantic)
 

@@ -83,7 +83,7 @@ def fetch(cache="real_anchors"):
                 continue
         got[name] = fp
     # The datasets are NOT redistributed with this package (they remain under
-    # their UCI licences). To let others verify they analysed the same files,
+    # their UCI licenses). To let others verify they analyzed the same files,
     # record a SHA-256 checksum of every downloaded file.
     import hashlib
     with open(os.path.join(cache, "CHECKSUMS.sha256"), "w") as fh:

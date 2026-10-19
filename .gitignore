@@ -5,3 +5,6 @@ code/analysis/real_anchors/*.csv
 **/.DS_Store
 code/results/
 code/runs_*/
+
+# Local model-call outputs; released records live under data/.
+runs/

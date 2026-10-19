@@ -6,7 +6,7 @@ Fig. 2  Evidence tracking (four dose panels + slope forest)
 Fig. 3  Representation and transfer (rendering control + real-record conditions)
 Fig. 4  Names, examples and field structure (naming dot plot, error, reliance)
 
-Palette: colorblind-safe categorical palette (Paul Tol), colour always paired
+Palette: colorblind-safe categorical palette (Paul Tol), color always paired
 with marker shape or fill. Text is at least 7 pt at final size.
 """
 from pathlib import Path
@@ -108,7 +108,7 @@ def fig1(data, out):
 
     Columns 1-4: no examples, PSE minus the full-information reference.
     Column 5: eighty examples, zero information, neutral names, PSE minus the
-    same-example learner (data/summaries/learner_zero_info.csv).
+    reference learner (data/summaries/learner_zero_info.csv).
     """
     g1, g2, cross, *_ = data
     learned, learner = cross.attrs["learned"], cross.attrs["learner"]
@@ -167,12 +167,12 @@ def fig1(data, out):
              fontweight="bold")
     fig.text(mid(0, 3), 0.035, "PSE minus full-information reference (pp)", ha="center",
              va="center", fontsize=7)
-    fig.text(mid(4, 4), 0.035, "PSE minus same-\nexample learner (pp)", ha="center",
+    fig.text(mid(4, 4), 0.035, "PSE minus reference\nlearner (pp)", ha="center",
              va="center", fontsize=6.6)
     from matplotlib.lines import Line2D
     h = [Line2D([], [], marker="o", ls="", mfc=EXCESS, mec=EXCESS, ms=4, label="excess reliance"),
-         Line2D([], [], marker="o", ls="", mfc="white", mec="#555555", ms=4, label="compatible"),
-         Line2D([], [], marker="s", ls="", mfc=BELOW, mec=BELOW, ms=4, label="below reference")]
+         Line2D([], [], marker="o", ls="", mfc="white", mec="#555555", ms=4, label="no resolved difference"),
+         Line2D([], [], marker="s", ls="", mfc=BELOW, mec=BELOW, ms=4, label="shortfall")]
     fig.legend(handles=h, ncol=3, loc="upper center", bbox_to_anchor=(0.6, 1.0), frameon=False,
                handletextpad=0.2, columnspacing=1.0)
     fig.text(0.0, 0.985, "B", fontsize=9.5, fontweight="bold", va="top", ha="left")
@@ -199,7 +199,7 @@ def fig2(data, out):
         ax.set_title(name, fontsize=7.5, pad=2)
         ax.set_xlim(-1.5, 25); ax.set_ylim(-2, 36); ax.set_xticks([0, 10, 20]); ax.set_yticks([0, 15, 30])
     for ax in axes[2:]:
-        ax.set_xlabel("same-example\nreference (pp)")
+        ax.set_xlabel("reference learner\n(pp)")
     for ax in (axes[0], axes[2]):
         ax.set_ylabel("model PSE (pp)")
     for ax in (axes[1], axes[3]):
@@ -254,9 +254,9 @@ def fig3(data, out):
                                    gridspec_kw=dict(width_ratios=[1, 1.15], wspace=0.75))
     e = ev["encoding"]["learned"]
     rows = [("continuous numeric", e["numeric_reference"], BLUE, "o", True),
-            ("ordered levels", e["ordinal"], TEAL, "o", True),
-            ("arbitrary codes", e["nominal"], GREY if False else "#777777", "o", False),
-            ("ordered minus codes", e["ordinal_minus_nominal"], BLACK, "D", True)]
+            ("ordered labels", e["ordinal"], TEAL, "o", True),
+            ("arbitrary labels", e["nominal"], GREY if False else "#777777", "o", False),
+            ("ordered minus arbitrary", e["ordinal_minus_nominal"], BLACK, "D", True)]
     for y, (lab, d, col, mk, fill) in enumerate(rows):
         ci(axa, d["effect_pp"], y, d["lo_pp"], d["hi_pp"], col, mk, fill=fill, horizontal=True)
         axa.text(36.5, y, f"{d['effect_pp']:+.1f}".replace("-", "\u2212"), fontsize=6.6, va="center", ha="right")
@@ -334,26 +334,26 @@ def fig4(data, out):
         d = table[(~table.informative) & (table.semantic == "neutral")].sort_values("k")
         ax.plot(d.k, 100 * d.R_LLM, mk + "-", color=col, mfc=col if fill else "white", ms=3.6, label=lab)
     d = g2[(~g2.informative) & (g2.semantic == "neutral")].sort_values("k")
-    ax.plot(d.k, 100 * d.R_Ideal, "^-", color=TEAL, ms=3.6, label="same-example learner")
+    ax.plot(d.k, 100 * d.R_Ideal, "^-", color=TEAL, ms=3.6, label="reference learner")
     ax.set_xticks([6, 12, 18]); ax.set_xlabel("displayed fields $k$"); ax.set_ylabel("ranking error (%)")
     ax.set_ylim(-2, 45); ax.set_xlim(4.5, 19.5)
     ax.text(12, 39.5, "model, no examples", fontsize=6.6, color="#555555", ha="center")
     ax.text(13.2, 24.5, "model,\n80 examples", fontsize=6.6, color=BLUE, ha="left", va="center")
-    ax.text(12, 5.5, "same-example learner", fontsize=6.6, color=TEAL, ha="center")
+    ax.text(12, 5.5, "reference learner", fontsize=6.6, color=TEAL, ha="center")
     letter(ax, "b", x=-0.3, y=1.02)
     ax = axs[2]
     lh = g2[(~g2.informative) & (g2.semantic == "neutral")].sort_values("k")
     hh = kt[(kt.corner == "HH") & (kt.rule == "learned") & (kt.semantic == "neutral")].sort_values("k")
-    for d, lo, hi, col, mk, lab, dx in ((lh, "ci_lo", "ci_hi", BLUE, "o", "low dependence", -0.35),
-                                        (hh, "lo", "hi", RED, "s", "high dependence", 0.35)):
+    for d, lo, hi, col, mk, lab, dx in ((lh, "ci_lo", "ci_hi", BLUE, "o", "low task-field dependence", -0.35),
+                                        (hh, "lo", "hi", RED, "s", "high task-field dependence", 0.35)):
         ax.plot(d.k + dx, d.PSE_pp, mk + "-", color=col, ms=3.6, label=lab, zorder=3)
         for _, r in d.iterrows():
             ax.plot([r.k + dx] * 2, [r[lo], r[hi]], color=col, lw=0.9)
     ax.axhline(0, color="#777777", lw=0.6)
     ax.set_xticks([6, 12, 18]); ax.set_xlabel("displayed fields $k$"); ax.set_ylabel("PSE, 80 examples (pp)")
     ax.set_xlim(4.5, 19.5)
-    ax.text(9.0, 25.0, "low task\ndependence", fontsize=6.6, color=BLUE, ha="center", va="bottom")
-    ax.text(13.6, 8.0, "high task\ndependence", fontsize=6.6, color=RED, ha="left", va="bottom")
+    ax.text(9.0, 25.0, "low task-field\ndependence", fontsize=6.6, color=BLUE, ha="center", va="bottom")
+    ax.text(13.6, 8.0, "high task-field\ndependence", fontsize=6.6, color=RED, ha="left", va="bottom")
     letter(ax, "c", x=-0.3, y=1.02)
     save(fig, out, "fig4_names_examples_structure")
 

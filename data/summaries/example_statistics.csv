@@ -1,0 +1,11 @@
+design,k,n_examples,beta,learner_pse_pp,learner_error,proxy_outcome_r
+example_count,12,12,,-4.0404,0.1919,-0.3344
+example_count,12,20,,5.0505,0.0909,0.1361
+example_count,12,80,,0.0,0.0202,0.1215
+dose_response,12,80,0.0,0.0,0.0202,0.1215
+dose_response,12,80,0.3,4.0404,0.0404,0.3143
+dose_response,12,80,0.45,13.1313,0.0505,0.4026
+dose_response,12,80,0.6,23.2323,0.0404,0.4878
+informative_grid,6,80,0.4,12.1212,0.0505,0.2654
+informative_grid,12,80,0.4,10.101,0.0707,0.3704
+informative_grid,18,80,0.4,12.1212,0.0707,0.2755

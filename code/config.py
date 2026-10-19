@@ -47,7 +47,7 @@ SEMANTICS  = ["social", "neutral"]
 RULES      = ["absent", "learned"]      # 'provided' arm was dropped (boundary condition already established)
 ARMS       = ["factual", "cf_a1", "cf_a0"]
 
-# Randomisation: 2 presentation orders, 1 template, 1 repeat -> 198 calls/arm
+# Randomization: 2 presentation orders, 1 template, 1 repeat -> 198 calls/arm
 N_ORDERS    = 2
 N_TEMPLATES = 1
 N_REPEATS   = 1

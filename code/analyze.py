@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Analyse recorded cells: capability, proxy effect, and the justified benchmark.
+"""Analyze recorded cells: capability, proxy effect, and the justified benchmark.
 
     python analyze.py --results results/DeepSeek-V4-Flash-0731
 

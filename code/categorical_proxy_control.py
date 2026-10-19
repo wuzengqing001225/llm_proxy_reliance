@@ -359,7 +359,9 @@ def boot(v: np.ndarray, B=5000, seed=0):
 
 def cmd_analyze(args):
     mdir = os.path.join(args.outdir, args.model)
-    arch = pd.read_csv(numeric_reference_path(args.rule))
+    ref_path = args.numeric_reference or numeric_reference_path(args.rule)
+    arch = pd.read_csv(ref_path)
+    print(f"numeric reference: {ref_path}")
     num = per_pair(arch)
     res = {"numeric (battery)": num}
     for render in ("ordinal", "nominal"):
@@ -417,6 +419,9 @@ def main():
         if name == "analyze":
             sp.add_argument("--outdir", required=True)
             sp.add_argument("--model", required=True)
+            sp.add_argument("--numeric-reference", default=None,
+                            help="battery records csv to use as the numeric reference; "
+                                 "defaults to the Sonnet cell")
     args = ap.parse_args()
     {"check": cmd_check, "run": cmd_run, "export": cmd_export, "ingest": cmd_ingest,
      "analyze": cmd_analyze}[args.cmd](args)

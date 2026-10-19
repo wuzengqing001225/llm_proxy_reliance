@@ -181,7 +181,7 @@ def main():
     ap.add_argument("--k", type=int, default=12)
     ap.add_argument("--corner", default="LH")
     ap.add_argument("--seed", type=int, default=None,
-                    help="analyse a seed replication instead of the frozen cells")
+                    help="analyze a seed replication instead of the frozen cells")
     args = ap.parse_args()
 
     rows = []

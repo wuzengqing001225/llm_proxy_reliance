@@ -1,7 +1,8 @@
-# Auditing proxy reliance in language model decisions against predictive evidence
+# Language models overuse group-linked fields and underuse them when they predict risk
 
 Code and data for the paper. The release covers the synthetic patient-ranking
-tasks with known risk, the matched proxy representation control, conditional
+tasks with known risk, the matched proxy representation control on Sonnet and
+GPT-5.6 Terra (two runs), conditional
 proxy substitution on real patient covariates from the UCI Diabetes 130-US
 Hospitals dataset, and two concurrent protocol checks.
 
@@ -18,6 +19,7 @@ python pooled_tracking.py --summary ../data/summaries/beta_four_model_summary.cs
     --deepseek ../data/raw_records/DeepSeek-V4-Flash-0731 \
     --qwen ../data/raw_records/qwen3.7-max --gpt ../data/raw_records/gpt-5.6-terra
 python gpt_tracking_repeats.py
+python analyze_gpt_rep.py
 python concurrent_checks.py analyze-regen --links ../data/concurrent_checks/links/regen_links.csv \
     --answers ../data/concurrent_checks/claude-sonnet-4-5-20250929/regen_jobs_answers.jsonl
 python concurrent_checks.py analyze-neartie --panel analysis/real_anchors/uci_diabetes_130hosp.csv \
@@ -26,6 +28,7 @@ python concurrent_checks.py analyze-neartie --panel analysis/real_anchors/uci_di
 ```
 
 Then run `python figures/code/make_paper_figures.py` from the repository root.
+The GPT representation control has two runs; `analyze_gpt_rep.py` pools them.
 The UCI retrieval scripts download the official files and check their SHA-256
 hashes. The dataset is https://archive.ics.uci.edu/dataset/296, DOI
 10.24432/C5230J, distributed by UCI under CC BY 4.0. Downloaded files stay
