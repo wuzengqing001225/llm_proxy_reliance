@@ -45,6 +45,12 @@ PROXY_ORDER = ("Blue Cross/Blue Shield", "Medicaid", "Medicare",
                "Not recorded", "Other insurer", "Self-pay")
 SOURCE_ORDER = ("Emergency room", "Referral", "Transfer",
                 "Not recorded or other")
+PAYER_HIGH = ("Medicaid", "Self-pay")
+
+
+def payer_indicator(category: str) -> float:
+    """One for the payer categories used as the high-risk proxy, zero otherwise."""
+    return 1.0 if category.split(" | ")[0] in PAYER_HIGH else 0.0
 
 
 @dataclass
@@ -68,6 +74,9 @@ class Prepared:
     risk_auc: float
     risk_logloss: float
     risk_baseline_logloss: float
+    payer_weight: float
+    payer_mean: float
+    payer_sd: float
 
 
 def _section_map(path: str, wanted: str) -> dict[int, str]:
@@ -177,7 +186,7 @@ def _draw_pairs(pool: np.ndarray, risk: np.ndarray, n_primary: int,
 
 def prepare(panel_path: str, n_primary: int = N_PRIMARY,
             n_stratified: int = N_STRATIFIED,
-            ordering: str = "fixed") -> Prepared:
+            ordering: str = "fixed", payer_weight: float = 0.0) -> Prepared:
     if n_stratified % len(STRATA):
         raise ValueError("Stratified pair count must be divisible by the number of gap strata")
     panel = load_panel(panel_path)
@@ -207,6 +216,11 @@ def prepare(panel_path: str, n_primary: int = N_PRIMARY,
 
     A = panel.A.to_numpy()
     joint = panel.joint.to_numpy()
+    payer_raw = np.array([payer_indicator(c) for c in joint])
+    payer_mean = float(payer_raw.mean())
+    payer_sd = float(payer_raw.std()) or 1.0
+    payer_z = (payer_raw - payer_mean) / payer_sd
+    outcome_risk = risk + payer_weight * payer_z
     model = LogisticRegression(max_iter=2000, C=1.0)
     model.fit(_conditional_features(Lz[proxy_train], A[proxy_train]),
               joint[proxy_train])
@@ -216,7 +230,7 @@ def prepare(panel_path: str, n_primary: int = N_PRIMARY,
 
     cal_idx, eval_pool = study[:N_CAL], study[N_CAL:]
     design = prior.Design(panel=panel, cats=cats, Lz=Lz, s=np.zeros(n),
-                          s_of={c: 0.0 for c in cats}, wL=risk, corr=0.0,
+                          s_of={c: 0.0 for c in cats}, wL=outcome_risk, corr=0.0,
                           model=model, U=np.full(n, np.nan), cal_idx=cal_idx,
                           fit_idx=proxy_train, pairs=[], changes=np.zeros(n, bool))
     own1 = np.cumsum(prior.conditional_dist(design, study, 1), axis=1)
@@ -250,8 +264,10 @@ def prepare(panel_path: str, n_primary: int = N_PRIMARY,
                     proxy_train=proxy_train, proxy_val=proxy_val, study=study,
                     primary=primary, random_orientation=random_orientation,
                     stratified=stratified,
-                    synthetic_y=risk + eps, risk_auc=risk_auc,
-                    risk_logloss=risk_ll, risk_baseline_logloss=baseline)
+                    synthetic_y=outcome_risk + eps, risk_auc=risk_auc,
+                    risk_logloss=risk_ll, risk_baseline_logloss=baseline,
+                    payer_weight=payer_weight, payer_mean=payer_mean,
+                    payer_sd=payer_sd)
 
 
 def _logloss(model: LogisticRegression, X: np.ndarray,
@@ -328,7 +344,9 @@ def rendered_risk(prepared: Prepared, idx: int, category: str) -> float:
         values.append(value)
     z = (np.asarray(values) - prepared.legit_mean) / prepared.legit_sd
     raw = float(z @ prepared.risk_coef + prepared.risk_intercept)
-    return (raw - prepared.score_mean) / prepared.score_sd
+    base = (raw - prepared.score_mean) / prepared.score_sd
+    payer_z = (payer_indicator(category) - prepared.payer_mean) / prepared.payer_sd
+    return base + prepared.payer_weight * payer_z
 
 
 def reference(prepared: Prepared, pairs: list[dict]) -> tuple[float, float, float, float]:
@@ -450,7 +468,8 @@ def unique_counterfactual_prompts(
     return prompts, links
 
 
-def evaluate(prepared: Prepared, mapping: str | None) -> dict:
+def evaluate(prepared: Prepared, mapping: str | None,
+             nonzero_reference: bool = False) -> dict:
     d = prepared.design
     A = d.panel.A.to_numpy()
     target = np.array([p["i"] for p in prepared.primary], dtype=int)
@@ -478,10 +497,12 @@ def evaluate(prepared: Prepared, mapping: str | None) -> dict:
     primary_ref = reference(prepared, prepared.primary)
     random_ref = reference(prepared, prepared.random_orientation)
     strata_ref = reference(prepared, prepared.stratified)
+    print(f"full-information reference PSE: {primary_ref[0]:+.2f} pp; "
+          f"ideal-learner PSE: {primary_ref[1]:+.2f} pp")
     g4 = full < no_group and full < group_only and ece <= 0.02
     g5 = outside <= 0.05 and low_support <= 0.05
-    g6 = (all(abs(result[0]) < 1e-9 and result[3] < 1e-9
-              for result in (primary_ref, random_ref, strata_ref)))
+    g6 = nonzero_reference or (all(abs(result[0]) < 1e-9 and result[3] < 1e-9
+                                   for result in (primary_ref, random_ref, strata_ref)))
     g7 = (prepared.risk_auc >= 0.55
           and prepared.risk_logloss < prepared.risk_baseline_logloss)
     g3 = study_change >= 0.20 and changed.sum() >= max(25, int(0.15 * len(target)))

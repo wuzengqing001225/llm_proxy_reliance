@@ -4,7 +4,8 @@ Code and data for the paper. The release covers the synthetic patient-ranking
 tasks with known risk, the matched proxy representation control on Sonnet and
 GPT-5.6 Terra (two runs), conditional
 proxy substitution on real patient covariates from the UCI Diabetes 130-US
-Hospitals dataset, and two concurrent protocol checks.
+Hospitals dataset, a fixed-category positive control on the same records, and
+two concurrent protocol checks.
 
 ## Reproduce the results without model calls
 
@@ -29,6 +30,9 @@ python concurrent_checks.py analyze-neartie --panel analysis/real_anchors/uci_di
 
 Then run `python figures/code/make_paper_figures.py` from the repository root.
 The GPT representation control has two runs; `analyze_gpt_rep.py` pools them.
+The real-record positive control is checked offline by
+`code/run_real_field_use.py`; its released records are under
+`data/real_field_use/`.
 The UCI retrieval scripts download the official files and check their SHA-256
 hashes. The dataset is https://archive.ics.uci.edu/dataset/296, DOI
 10.24432/C5230J, distributed by UCI under CC BY 4.0. Downloaded files stay

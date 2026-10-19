@@ -1,0 +1,28 @@
+{
+ "model": "claude-sonnet-4-5-20250929",
+ "provider": "anthropic",
+ "base_url_host": "api.anthropic.com",
+ "high": "Medicaid | Referral",
+ "low": "Blue Cross/Blue Shield | Referral",
+ "payer_weight": 1.0,
+ "pairs": 300,
+ "design_pairs": 1200,
+ "panel_sha256": "f792c388d9b470aac4fbf21c39b176534d55a116e7626881c30bbe7ab0341422",
+ "mapping_sha256": "f1bb82b471cb34649352597572c9b1fb00bd27f77b9f5a22a03dc3eb1039749e",
+ "date_utc": "2026-10-19T16:53:37+00:00",
+ "full_information_pse_pp": 10.999999999999998,
+ "ideal_learner_pse_pp": 10.999999999999998,
+ "expected_served": "claude-sonnet-4-5-20250929",
+ "request_channel": "tools=yes reasoning_budget=no temperature=0.0",
+ "status": "complete",
+ "answered": 1200,
+ "logical_jobs": 1200,
+ "missing": 0,
+ "served": [
+  {
+   "model": "claude-sonnet-4-5-20250929",
+   "system_fingerprint": "",
+   "calls": 1200
+  }
+ ]
+}

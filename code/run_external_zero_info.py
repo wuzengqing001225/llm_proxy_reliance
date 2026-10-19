@@ -132,6 +132,9 @@ def main() -> None:
                                                "gap_stratified"), default="primary")
     parser.add_argument("--pilot-pairs", type=int, default=0,
                         help="limit paid calls to the first N pairs; resume later")
+    parser.add_argument("--payer-weight", type=float, default=0.0,
+                        help="weight on the Medicaid/self-pay indicator in the "
+                             "outcome rule; 0 is the zero-information design")
     parser.add_argument("--outdir", type=Path)
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--expected-served",
@@ -144,8 +147,10 @@ def main() -> None:
         parser.error("--pairs must be positive and --workers must be 1..8")
 
     prepared = prepare(str(args.panel), n_primary=args.pairs,
-                       ordering=args.ordering)
-    gates = evaluate(prepared, str(args.ids_mapping))
+                       ordering=args.ordering,
+                       payer_weight=args.payer_weight)
+    gates = evaluate(prepared, str(args.ids_mapping),
+                     nonzero_reference=abs(args.payer_weight) > 0)
     pairs = selected_pairs(prepared, args.run_set)
     jobs, links = unique_counterfactual_prompts(prepared, pairs)
     if args.pilot_pairs and not 1 <= args.pilot_pairs <= len(pairs):
@@ -173,14 +178,16 @@ def main() -> None:
         raise SystemExit("Requested temperature is not zero; no calls made")
 
     model_dir = args.outdir / cfg.model.replace("/", "_")
-    stem = f"external_zero_{args.run_set}_{args.ordering}_p{args.pairs}"
+    stem = (f"external_zero_{args.run_set}_{args.ordering}_p{args.pairs}"
+            f"_w{args.payer_weight:g}")
     call_path = model_dir / f"{stem}_calls.csv"
     record_path = model_dir / f"{stem}_records.csv"
     meta_path = model_dir / f"{stem}_metadata.json"
     request_path = model_dir / f"{stem}_requests.jsonl"
     design_hash = hashlib.sha256(json.dumps(
         dict(jobs=sorted(jobs), run_set=args.run_set, ordering=args.ordering,
-             pairs=args.pairs, seed=SEED), sort_keys=True).encode()).hexdigest()
+             pairs=args.pairs, payer_weight=args.payer_weight,
+             seed=SEED), sort_keys=True).encode()).hexdigest()
     specification = dict(design_hash=design_hash, panel_sha256=file_sha256(args.panel),
                          mapping_sha256=file_sha256(args.ids_mapping),
                          requested_model=cfg.model,
@@ -192,7 +199,7 @@ def main() -> None:
                          requested_channel=EXPECTED_CHANNEL,
                          run_set=args.run_set, ordering=args.ordering,
                          pairs=len(pairs), design_primary_pairs=args.pairs,
-                         seed=SEED)
+                         payer_weight=args.payer_weight, seed=SEED)
     if not args.resume and any(p.exists() for p in (call_path, record_path, meta_path, request_path)):
         raise SystemExit("Output already exists; use --resume with identical settings")
     if args.resume:

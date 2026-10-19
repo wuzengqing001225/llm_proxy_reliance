@@ -115,7 +115,8 @@ def main() -> None:
           "(all have zero contrast by exact-prompt reuse)")
     prepared = prepare(str(args.panel),
                        n_primary=int(meta.get("design_primary_pairs", total_pairs)),
-                       ordering=meta["ordering"])
+                       ordering=meta["ordering"],
+                       payer_weight=float(meta.get("payer_weight", 0.0)))
     pairs = selected_pairs(prepared, meta["run_set"])
     if len(pairs) != total_pairs:
         raise SystemExit("Reconstructed pair count differs from the call record")
