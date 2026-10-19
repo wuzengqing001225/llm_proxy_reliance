@@ -1,4 +1,4 @@
-# Language models overuse group-linked fields and underuse them when they predict risk
+# Language models give group-linked fields the wrong weight
 
 Code and data for the paper. The release covers the synthetic patient-ranking
 tasks with known risk, the matched proxy representation control on Sonnet and
