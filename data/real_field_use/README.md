@@ -28,8 +28,9 @@ reference supports. The 300-pair pilot was reused in the full run (1,200 of
 
 - `claude-sonnet-4-5-20250929/real_field_use_p1200_w1_records.csv`
 - `claude-sonnet-4-5-20250929/real_field_use_p1200_w1_metadata.json`
-- `pilot300/` holds the 300-pair pilot records and metadata referenced by the
-  full run's `reused_records` field.
+- `pilot300/` holds the 300-pair pilot records and metadata. The full run's
+  `reused_records` field records the local path used at collection time; the
+  same pilot records are in `pilot300/`.
 
 ## Reproduce
 
