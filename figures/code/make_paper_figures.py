@@ -229,7 +229,9 @@ def fig2(data, out):
     rows.append(("GPT, neutral, repeated", r, NEUTRAL, "D"))
     for nm in ("Pooled (3 models)", "Pooled (4 models)"):
         r = slopes[slopes.model == nm].iloc[0]
-        rows.append((nm.replace("Pooled", "pooled") + ", 90%", r, BLACK, "D"))
+        lab = ("pooled (3 models), primary" if "3" in nm
+               else "pooled (4 models), 90%")
+        rows.append((lab, r, BLACK, "D"))
     axf.axvspan(-0.15, 0.15, color="#EEEEEE", zorder=0, lw=0)
     for y, (lab, r, col, mk) in enumerate(rows):
         ci(axf, r.gamma, y, r.lo, r.hi, col, mk, fill=mk != "s", horizontal=True, size=3.6)

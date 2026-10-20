@@ -251,6 +251,8 @@ def cmd_run(args):
             if r["patient"] != "":
                 answered[r["prompt_sha256"]] = int(r["patient"])
     todo = sorted({jb["sha"]: jb["prompt"] for jb in jobs if jb["sha"] not in answered}.items())
+    if args.limit:
+        todo = todo[:args.limit]
     print(f"{tag}: {len(jobs)} jobs, {len(todo)} distinct prompts still to send")
     with ThreadPoolExecutor(max_workers=args.workers) as ex:
         futs = {ex.submit(cli.choose, pr): sha for sha, pr in todo}
@@ -407,6 +409,9 @@ def main():
             sp.add_argument("--outdir", required=True)
             sp.add_argument("--workers", type=int, default=8)
             sp.add_argument("--resume", action="store_true")
+            sp.add_argument("--limit", type=int, default=0,
+                            help="send at most N distinct prompts (smoke test); "
+                                 "use --resume to fill the rest")
         if name == "export":
             sp.add_argument("--render", choices=("ordinal", "nominal"), required=True)
             sp.add_argument("--out", required=True)

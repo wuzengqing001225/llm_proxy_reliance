@@ -1,0 +1,19 @@
+{
+ "cell": "catctl_k12_LH_neutral_learned_zero_ordinal",
+ "model": "qwen/qwen3.7-max",
+ "render": "ordinal",
+ "rule": "learned",
+ "base_url_host": "openrouter.ai",
+ "date_utc": "2026-10-20T17:08:13+00:00",
+ "channel": "tools=yes reasoning_budget=yes temperature=default",
+ "extra_json": "{\"reasoning\": {\"enabled\": false}}",
+ "distinct_prompts": 396,
+ "missing": 1,
+ "served": [
+  {
+   "model": "qwen/qwen3.7-max",
+   "system_fingerprint": "None",
+   "calls": 397
+  }
+ ]
+}
